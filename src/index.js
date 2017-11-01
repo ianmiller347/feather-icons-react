@@ -1,0 +1,1 @@
+export FeatherIcon from './FeatherIcon';
