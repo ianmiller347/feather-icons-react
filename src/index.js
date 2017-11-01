@@ -1,1 +1,5 @@
-export FeatherIcon from './FeatherIcon';
+import FeatherIcon from './FeatherIcon';
+
+module.exports = {
+  FeatherIcon
+};
