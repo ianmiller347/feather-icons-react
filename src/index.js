@@ -32,7 +32,7 @@ class FeatherIcon extends Component {
     *  the sizes are relative based on the viewBox attribute.
     *  our width and height variables will scale the SVG accordingly.
     *  <g> is just a wrapper it does nothing except let me use valid JSX markup
-    *  these are all based on generated icons.json from feathericons lib 
+    *  these are all based on generated icons.json from feathericons lib
     */
     if (icon === 'activity') {
       return (
@@ -1548,12 +1548,14 @@ class FeatherIcon extends Component {
 
 FeatherIcon.propTypes = {
   icon: PropTypes.string.isRequired,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  className: PropTypes.string
 }
 
 FeatherIcon.defaultProps = {
   color: 'currentColor',
-  size: 24
+  size: 24,
+  className: ''
 }
 
 export default FeatherIcon;
