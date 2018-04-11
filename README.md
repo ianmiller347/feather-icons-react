@@ -22,48 +22,47 @@ e.g.: `<FeatherIcon icon="copy" size="24" />` or `<... size={24} />`
 Sizes can always be easily overridden by CSS.
 
 #### Dynamically change icons
-**Search Bar Container example:**
+**Toggle icon example:**
 ```
-export default const SearchBar = ({ currentIcon, onChange, onClick }) => {
-  return (
-    <div className='search-bar-container'>
-      <input type='text' onChange={onChange} />
-      <button className='search-bar__button' onClick={onClick}>
-        <FontIcon icon={currentIcon} className='button--icon' />
-      </button>
-    </div>
-  );
-};
-
-class SearchBarContainer extends Component {
-  constructor(props) {
-    super(props);
+class ToggleIconContainer extends Component {
+  constructor() {
+    super();
 
     this.state = {
-      showingSuggestions: false
+      icon: 'x'
     };
   }
 
-  toggleSuggestions = () => {
+  toggleIcon = (icon) => {
     this.setState({
-      showingSuggestions: !this.state.showingSuggestions
+      icon
     });
   }
 
-  performSearch = (e) => {
-    this.props.dispatch(searchFromInput(e.target.value));
-  }
-
   render() {
-    const { showingSuggestions } = this.state;
-    const { suggestionsList } = this.props;
-    const currentClass = (showingSuggestions) ? 'search' : 'x ';
+    const { icon } = this.state;
 
     return (
-      <SearchBar
-        onChange={this.toggleSuggestions}
-        currentIcon={currentClass}
-        onClick={this.performSearch} />
+      <div>
+        <FeatherIcon icon={icon} />
+        <ul>
+          <li>
+            <button onClick={() => this.toggleIcon('x')}>
+              Make the Icon an X
+            </button>
+          </li>
+          <li>
+            <button onClick={() => this.toggleIcon('anchor')}>
+              Make the Icon an Anchor
+            </button>
+          </li>
+          <li>
+            <button onClick={() => this.toggleIcon('box')}>
+              Make the Icon a box
+            </button>
+          </li>
+        </ul>
+      </div>
     );
   }
 }
