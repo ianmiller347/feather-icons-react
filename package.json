@@ -1,6 +1,6 @@
 {
   "name": "feather-icons-react",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Feather Icons as a React component.",
   "main": "build/index.js",
   "scripts": {
