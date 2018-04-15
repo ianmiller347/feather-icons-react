@@ -8,7 +8,7 @@ This package lets you use [Feather Icons](https://feathericons.com/) as a React 
 Feather Icons is an svg font library by Cole Bemis.
 
 ### Example usage:
-```
+```javascript
 import FeatherIcon from 'feather-icons-react';
 <FeatherIcon icon="close" />
 ```
