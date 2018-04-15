@@ -23,7 +23,7 @@ Sizes can always be easily overridden by CSS.
 
 #### Dynamically change icons
 **Toggle icon example:**
-```
+```javascript
 class ToggleIconContainer extends Component {
   constructor() {
     super();
