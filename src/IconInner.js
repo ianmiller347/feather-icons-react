@@ -1,16 +1,29 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import DOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
 // for now this icons json is generated via the build script from latest feather
 // TODO: automatically generate this JSON via this repo's build script
 import icons from './icons.json';
 
 class IconInner extends PureComponent {
   createMarkup(markup) {
+
     // sanitize markup first:
-    const sanitizedMarkup = DOMPurify.sanitize(markup);
+    let sanitizedMarkup = DOMPurify.sanitize(markup);
+
+    // handling server rendering
+    if (!window) {
+      // We create a window out of JSDOM
+      const window = (new JSDOM('')).window;
+      // Plug it to DOMPurify
+      const DOMPurifyServer = DOMPurify(window);
+      // and then sanitize markup 
+      sanitizedMarkup = DOMPurifyServer.sanitize(markup);
+    }
+ 
     // now do the weird thing for dangerouslySetInnerHTML
-    return {__html: sanitizedMarkup};
+    return { __html: sanitizedMarkup };
   }
   render() {
     // <g> is just a wrapper it does nothing except let me use valid JSX markup
