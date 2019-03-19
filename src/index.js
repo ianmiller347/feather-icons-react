@@ -17,7 +17,8 @@ class FeatherIcon extends Component {
         strokeLinecap="round"
         strokeLinejoin="round"
         className={`feather feather-${icon} ${className}`}
-        {...otherProps}>
+        {...otherProps}
+      >
         <IconInner icon={icon} />
       </svg>
     );
@@ -28,11 +29,11 @@ FeatherIcon.propTypes = {
   icon: PropTypes.string.isRequired,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string
-}
+};
 
 FeatherIcon.defaultProps = {
   size: 24,
   className: ''
-}
+};
 
 export default FeatherIcon;
