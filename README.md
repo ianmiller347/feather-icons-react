@@ -21,6 +21,18 @@ e.g.: `<FeatherIcon icon="copy" size="24" />` or `<... size={24} />`
 
 Sizes can always be easily overridden by CSS.
 
+**Setting fill and other properties**
+
+Fill defaults to none, but can be passed as a React prop
+
+`<FeatherIcon icon="heart" fill="red" />`
+
+Addtionally, you can add any other SVG tag properties, and they will pass through.
+
+**Setting colors**
+
+Use CSS. The icons default to use currentColor. This is equivalent to whatever text color is being used in the icon's container. 
+
 #### Dynamically change icons
 **Toggle icon example:**
 ```javascript
