@@ -85,3 +85,10 @@ The icons are all square, based on a 24x24 grid.
 
 
 The full list of icon names can be referenced at: [feathericons.com](https://feathericons.com/)
+
+
+## Developing Locally
+To build the bundled assets for consumption
+`yarn build`
+
+Update this package to have a demo and some tests on icon rendering.
