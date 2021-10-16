@@ -1,40 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import IconInner from './IconInner';
 
-class FeatherIcon extends Component {
-  render() {
-    const { icon, size, className, fill, ...otherProps } = this.props;
-
-    return (
-      <svg
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        fill={fill || 'none'}
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={`feather feather-${icon} ${className}`}
-        {...otherProps}
-      >
-        <IconInner icon={icon} />
-      </svg>
-    );
+const FeatherIcon = ({
+  icon,
+  size = 24,
+  className = '',
+  fill = 'none',
+  ...otherProps
+}) => {
+  if (!icon) {
+    return null;
   }
-}
+
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={fill}
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`feather feather-${icon} ${className}`}
+      {...otherProps}
+    >
+      <IconInner icon={icon} />
+    </svg>
+  );
+};
 
 FeatherIcon.propTypes = {
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired, // the icon name that matches exactly from feathericons
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
   fill: PropTypes.string
-};
-
-FeatherIcon.defaultProps = {
-  size: 24,
-  className: ''
 };
 
 export default FeatherIcon;

@@ -79,12 +79,13 @@ To build the bundled assets for consumption
 `yarn build`
 
 ### Updating the icons
-If you found a missing icon, it is pretty easy to generate a new icons.json and get a PR up so this package stays in sync with the latest feather icons.
-1. git clone https://github.com/feathericons/feather.git
-2. npx install
-3. npx babel-node bin/build-icons-json.js
-4. cp dist/icons.json ../feather-icons-react/src/icons.json
-5. Format the file, try to avoid entire green so the diff looks neat in the PR
+If you found a missing icon, it is pretty easy to generate a new icons.json and get a PR up so this package stays in sync with the latest feather icons. 
+Go into your desired project directory (ideally one directory above where you have feather-icons-react saved)
+1. `git clone https://github.com/feathericons/feather.git`
+2. `cd feather && npx install`
+3. `npx babel-node bin/build-icons-json.js`
+4. `cp dist/icons.json ../feather-icons-react/src/icons.json`
+5. Now open the file you just copied. Format the file, try to avoid entire green so the diff looks neat in the PR.
 
 Alternatively, you can simply copy just the lines from the JSON file you know are missing. This is easier if you're just adding one new icon.
 
