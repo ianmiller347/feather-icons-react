@@ -5,7 +5,7 @@
 `yarn add feather-icons-react`
 
 This package lets you use [Feather Icons](https://feathericons.com/) as a React Component.
-Feather Icons is an svg font library by Cole Bemis.
+It currently supports up to version [4.28.0](https://github.com/feathericons/feather/releases/tag/v4.28.0)
 
 * [Usage](#usage)
 * [Contributing](#contributing)
