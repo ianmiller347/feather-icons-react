@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconInner from './IconInner';
 
+/**
+ * Feather icon
+ * otherProps spread will be removed in version 1.
+ * @param {icon} icon name that matches from feathericons 
+ * @returns FeatherIcon react component
+ */
 const FeatherIcon = ({
   icon,
   size = 24,
