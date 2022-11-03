@@ -5,7 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "test": "npm run test",
-    "build": "npm run lint && babel src -d build --copy-files && npm run build-exports && babel build",
+    "build": "npm run lint && babel src -d build --copy-files && npm run build-exports && babel build -d build",
     "build-exports": "node generate-icon-exports.js",
     "lint": "eslint src",
     "lint:watch": "esw -w lib/**",
