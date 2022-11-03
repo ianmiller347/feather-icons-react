@@ -1,2 +1,4 @@
 .babelrc
 src
+.storybook
+generate-icon-exports.js

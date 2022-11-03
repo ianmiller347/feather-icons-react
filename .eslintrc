@@ -30,7 +30,10 @@
     "react/jsx-indent": ["warn", 2],
     "react/jsx-indent-props": ["warn", 2],
     "react/jsx-key": "warn",
-    "react/jsx-max-props-per-line": "warn",
+    "react/jsx-max-props-per-line": [1,
+      {
+        "maximum": 3
+      }],
     "react/jsx-no-bind": ["warn", {"allowArrowFunctions": true}],
     "react/jsx-no-comment-textnodes": "warn",
     "react/jsx-no-duplicate-props": ["warn", { "ignoreCase": true }],

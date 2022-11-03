@@ -1,14 +1,18 @@
 {
   "name": "feather-icons-react",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Feather Icons as a React component.",
   "main": "build/index.js",
   "scripts": {
     "test": "npm run test",
-    "build": "npm run lint && babel src -d build --copy-files",
+    "build": "npm run lint && babel src -d build --copy-files && npm run build-exports",
+    "build-exports": "node generate-icon-exports.js",
     "lint": "eslint src",
     "lint:watch": "esw -w lib/**",
-    "prepare": "npm run build"
+    "lint:fix": "eslint --fix",
+    "prepare": "npm run lint:fix && npm run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -32,7 +36,16 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack4": "^6.5.13",
+    "@storybook/manager-webpack4": "^6.5.13",
+    "@storybook/react": "^6.5.13",
+    "@storybook/testing-library": "^0.0.13",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.2.5",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -41,6 +54,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.4"
   },
   "dependencies": {}
 }
