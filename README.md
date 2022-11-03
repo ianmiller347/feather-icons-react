@@ -26,6 +26,8 @@ import { Close } from 'feather-icons-react';
 <Close />;
 ```
 
+This gives you the flexibility to dynamically change the icon if you want to use the default export (like in the Toggle Icon example below), or potentially save on size in your application bundle by not having to require all of the icons by using the default export.
+
 **Setting a size:**
 
 Size can be passed as either string or number.
@@ -97,9 +99,17 @@ Go into your desired project directory (ideally one directory above where you ha
 
 Alternatively, you can simply copy just the lines from the JSON file you know are missing. This is easier if you're just adding one new icon.
 
+### Testing your changes
+
+You can use Storybook to verify your newly added icon is working as expected.
+
+`yarn storybook`
+
+This will open a new browser tab with the Storybook stories. You can type in the name of the icon and see it rendered in the main view.
+
 ### TODO
 
-- Update this package to have a demo and some tests on icon rendering.
+- Add tests both to the icon render and the generate icon exports script
 - Automatically generate new icons via script.
   - could copy build-icons-json script from feather-icons
 - verify react 18 support
