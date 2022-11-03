@@ -60,7 +60,7 @@ fs.mkdir('build/IconComponents', { recursive: true }, (err) => {
   if (err) throw err;
 });
 
-let iconList = '';
+let exportList = '';
 
 iconNames.forEach((icon) => {
   const { iconName } = icon;
@@ -71,14 +71,10 @@ iconNames.forEach((icon) => {
       if (err) throw err;
     }
   );
-  iconList += `${iconName},`;
+  exportList += `export { default as ${iconName} } from './${iconName}';`;
 });
 
-const exportIndex = `export {
-  ${iconList}
-}`;
-
-fs.writeFile('build/IconComponents/index.js', exportIndex, (err) => {
+fs.writeFile('build/IconComponents/index.js', exportList, (err) => {
   if (err) throw err;
 });
 

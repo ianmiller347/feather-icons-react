@@ -1,11 +1,11 @@
 {
   "name": "feather-icons-react",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Feather Icons as a React component.",
   "main": "build/index.js",
   "scripts": {
     "test": "npm run test",
-    "build": "npm run lint && babel src -d build --copy-files && npm run build-exports",
+    "build": "npm run lint && babel src -d build --copy-files && npm run build-exports && babel build",
     "build-exports": "node generate-icon-exports.js",
     "lint": "eslint src",
     "lint:watch": "esw -w lib/**",
