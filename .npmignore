@@ -2,3 +2,4 @@
 src
 .storybook
 generate-icon-exports.js
+.yarn/*

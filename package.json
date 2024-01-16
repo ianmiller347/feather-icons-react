@@ -1,6 +1,6 @@
 {
   "name": "feather-icons-react",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "Feather Icons as a React component.",
   "main": "build/index.js",
   "scripts": {
@@ -11,8 +11,8 @@
     "lint:watch": "esw -w lib/**",
     "lint:fix": "eslint --fix",
     "prepare": "npm run lint:fix && npm run build",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -36,27 +36,33 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
-    "@storybook/addon-actions": "^6.5.13",
-    "@storybook/addon-essentials": "^6.5.13",
-    "@storybook/addon-interactions": "^6.5.13",
-    "@storybook/addon-links": "^6.5.13",
-    "@storybook/builder-webpack4": "^6.5.13",
-    "@storybook/manager-webpack4": "^6.5.13",
-    "@storybook/react": "^6.5.13",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-actions": "^7.6.8",
+    "@storybook/addon-essentials": "^7.6.8",
+    "@storybook/addon-interactions": "^7.6.8",
+    "@storybook/addon-links": "^7.6.8",
+    "@storybook/addon-onboarding": "^1.0.10",
+    "@storybook/blocks": "^7.6.8",
+    "@storybook/react": "^7.6.8",
+    "@storybook/react-webpack5": "^7.6.8",
+    "@storybook/test": "^7.6.8",
+    "@storybook/testing-library": "^0.2.2",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.2.5",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-storybook": "^0.6.15",
     "eslint-watch": "^6.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "storybook": "^7.6.8"
   },
   "peerDependencies": {
-    "react": ">= 16.8.4"
+    "react": "^16.8.4 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.4 || ^17.0.0 || ^18.0.0"
   },
-  "dependencies": {}
+  "types": "index.d.ts",
+  "packageManager": "yarn@4.0.2"
 }
