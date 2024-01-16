@@ -17,4 +17,5 @@ IconSelector.args = {
   size: 24,
   className: 'custom-icon feather',
   fill: 'none',
+  strokeWidth: 2,
 };

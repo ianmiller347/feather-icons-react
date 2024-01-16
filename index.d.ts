@@ -3,6 +3,7 @@ export interface FeatherIconProps {
   size?: string | number;
   className?: string;
   fill?: string;
+  strokeWidth?: string | number;
 }
 
 declare function FeatherIcon(prop: FeatherIconProps): JSX.Element;

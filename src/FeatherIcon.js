@@ -13,6 +13,7 @@ const FeatherIcon = ({
   size = 24,
   className = '',
   fill = 'none',
+  strokeWidth = 2,
   ...otherProps
 }) => {
   if (!icon) {
@@ -26,7 +27,7 @@ const FeatherIcon = ({
       viewBox="0 0 24 24"
       fill={fill}
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`feather feather-${icon} ${className}`}
@@ -42,6 +43,7 @@ FeatherIcon.propTypes = {
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
   fill: PropTypes.string,
+  strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default FeatherIcon;
