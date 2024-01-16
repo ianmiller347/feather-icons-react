@@ -64,10 +64,5 @@
     "react-dom": "^16.8.4 || ^17.0.0 || ^18.0.0"
   },
   "types": "index.d.ts",
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
-  },
   "packageManager": "yarn@4.0.2"
 }
