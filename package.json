@@ -5,7 +5,11 @@
   "main": "build/index.js",
   "scripts": {
     "test": "npm run test",
-    "build": "npm run lint && babel src -d build --copy-files && npm run build-exports && rollup --config",
+    "build": "npm run lint && npm run build:copy-files && npm run build-exports && npm run build:bundle && npm run build:cleanup",
+    "build:copy-files": "babel src -d build --copy-files --no-copy-ignored ",
+    "build:cleanup": "node clean-icon-exports.js",
+    "build:bundle": "rollup --config",
+    "build:icon-components": "babel build/IconComponents -d build/IconComponents",
     "build-exports": "node generate-icon-exports.js",
     "lint": "eslint src",
     "lint:watch": "esw -w lib/**",

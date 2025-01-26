@@ -3,6 +3,18 @@
 // this file is run at build time and generates React components.
 // it does not get included in the published npm package
 const fs = require('fs');
+const { appendFile, readfileSync } = require('fs/promises');
+
+const containsLine = (path, line) => {
+  const fileData = fs.readFileSync(path);
+  return fileData.includes(line);
+};
+
+const appendLineIfLacking = (path, line) => {
+  if (!containsLine(path, line)) {
+    appendFile(path, `${line}\n`);
+  }
+};
 
 const iconsText = fs.readFileSync('src/icons.json');
 const iconsJson = JSON.parse(iconsText);
@@ -56,33 +68,29 @@ const iconNames = Object.keys(iconsJson).map((iconKey) => {
 });
 
 // make the subdirectory for icon components
-fs.mkdir('build/IconComponents', { recursive: true }, (err) => {
+const iconComponentsDir = `src/IconComponents`;
+fs.mkdir(iconComponentsDir, { recursive: true }, (err) => {
   if (err) throw err;
 });
 
-let exportList = '';
+const exportList = [];
 
 iconNames.forEach((icon) => {
   const { iconName } = icon;
   fs.writeFile(
-    `build/IconComponents/${iconName}.js`,
+    `${iconComponentsDir}/${iconName}.js`,
     createComponent(icon),
     (err) => {
       if (err) throw err;
     }
   );
-  exportList += `export { default as ${iconName} } from './${iconName}';`;
+  exportList.push(
+    `export { default as ${iconName} } from './IconComponents/${iconName}';`
+  );
 });
 
-fs.writeFile('build/IconComponents/index.js', exportList, (err) => {
-  if (err) throw err;
+exportList.forEach((exportLine) => {
+  appendLineIfLacking('src/index.js', exportLine);
 });
 
-const exportAllIcons = `
-export * from './IconComponents';
-`;
-// assuming index file is already created, now export all icon components
-fs.appendFile('build/index.js', exportAllIcons, function (err) {
-  if (err) throw err;
-  console.log('Finished building and creating feather icon components!');
-});
+console.log('Finished building and creating feather icon components!');
