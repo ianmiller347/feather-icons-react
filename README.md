@@ -14,14 +14,14 @@ It currently supports up to version [4.29.0](https://github.com/feathericons/fea
 
 You can use the default export and pass the 'icon' prop:
 
-```javascript
+```jsx
 import FeatherIcon from 'feather-icons-react';
 <FeatherIcon icon="close" />;
 ```
 
 Or you can use the provided named export in place of the icon prop:
 
-```javascript
+```jsx
 import { Close } from 'feather-icons-react';
 <Close />;
 ```
@@ -52,7 +52,7 @@ Use CSS. The icons default to use currentColor. This is equivalent to whatever t
 
 **Toggle icon example:**
 
-```javascript
+```jsx
 const ToggleIconContainer = () => {
   const [icon, setIcon] = useState('x');
 
@@ -110,6 +110,6 @@ This will open a new browser tab with the Storybook stories. You can type in the
 ### TODO
 
 - Add tests both to the icon render and the generate icon exports script
+- Convert to Typescript
 - Automatically generate new icons via script.
   - could copy build-icons-json script from feather-icons
-- verify react 18 support

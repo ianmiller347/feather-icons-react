@@ -1,8 +1,9 @@
 {
   "name": "feather-icons-react",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Feather Icons as a React component.",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "npm run test",
     "build": "npm run lint && npm run build:copy-files && npm run build-exports && npm run build-types && npm run build:bundle && npm run build:cleanup",
@@ -73,6 +74,5 @@
     "react": "^16.8.4 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.4 || ^17.0.0 || ^18.0.0"
   },
-  "types": "build/index.d.ts",
   "packageManager": "yarn@4.0.2"
 }

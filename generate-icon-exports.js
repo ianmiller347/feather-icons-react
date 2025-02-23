@@ -3,7 +3,7 @@
 // this file is run at build time and generates React components.
 // it does not get included in the published npm package
 const fs = require('fs');
-const { appendFile, readfileSync } = require('fs/promises');
+const { appendFile } = require('fs/promises');
 
 const containsLine = (path, line) => {
   const fileData = fs.readFileSync(path);
