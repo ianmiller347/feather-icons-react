@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import type { FeatherIconProps } from './types';
 import IconInner from './IconInner';
 
 /**
@@ -14,8 +14,8 @@ const FeatherIcon = ({
   className = '',
   fill = 'none',
   strokeWidth = 2,
-  ...otherProps
-}) => {
+  ...props
+}: FeatherIconProps) => {
   if (!icon) {
     return null;
   }
@@ -31,19 +31,11 @@ const FeatherIcon = ({
       strokeLinecap="round"
       strokeLinejoin="round"
       className={`feather feather-${icon} ${className}`}
-      {...otherProps}
+      {...props}
     >
       <IconInner icon={icon} />
     </svg>
   );
-};
-
-FeatherIcon.propTypes = {
-  icon: PropTypes.string.isRequired, // the icon name that matches exactly from feathericons
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  className: PropTypes.string,
-  fill: PropTypes.string,
-  strokeWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default FeatherIcon;
