@@ -101,15 +101,34 @@ Alternatively, you can simply copy just the lines from the JSON file you know ar
 
 ### Testing your changes
 
-You can use Storybook to verify your newly added icon is working as expected.
+You can use the demo directory to verify your changes.
 
-`yarn storybook`
+Build the main package first (if not already built):
 
-This will open a new browser tab with the Storybook stories. You can type in the name of the icon and see it rendered in the main view.
+```
+yarn build
+```
+
+Navigate to the demo directory:
+
+```
+cd demo
+```
+
+Install demo dependencies:
+
+```
+yarn install
+```
+
+Start the dev server:
+
+```
+yarn dev
+```
 
 ### TODO
 
 - Add tests both to the icon render and the generate icon exports script
-- Convert to Typescript
 - Automatically generate new icons via script.
   - could copy build-icons-json script from feather-icons

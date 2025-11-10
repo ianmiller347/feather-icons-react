@@ -4,6 +4,7 @@
 // it does not get included in the published npm package
 const fs = require('fs');
 const { appendFile } = require('fs/promises');
+const path = require('path');
 
 const containsLine = (path, line) => {
   const fileData = fs.readFileSync(path);
@@ -31,12 +32,14 @@ const createComponent = ({
   iconMarkup,
   iconKey,
 }) => `import React from 'react';
+import type { FeatherNamedIconProps } from '../types';
+
 const ${iconName} = ({
   size = 24,
   className = '',
   fill = 'none',
   ...otherProps
-}) => {
+}: FeatherNamedIconProps) => {
   return (
     <svg
       width={size}
@@ -53,6 +56,7 @@ const ${iconName} = ({
     </svg>
   );
 };
+
 export default ${iconName};
 `;
 
@@ -78,7 +82,7 @@ const exportList = [];
 iconNames.forEach((icon) => {
   const { iconName } = icon;
   fs.writeFile(
-    `${iconComponentsDir}/${iconName}.js`,
+    `${iconComponentsDir}/${iconName}.tsx`,
     createComponent(icon),
     (err) => {
       if (err) throw err;
@@ -89,8 +93,10 @@ iconNames.forEach((icon) => {
   );
 });
 
+const INDEX_FILE = path.join(__dirname, 'src', 'index.ts');
+
 exportList.forEach((exportLine) => {
-  appendLineIfLacking('src/index.js', exportLine);
+  appendLineIfLacking(INDEX_FILE, exportLine);
 });
 
 console.log('Finished building and creating feather icon components!');

@@ -31,18 +31,23 @@
     "react/jsx-indent": ["warn", 2],
     "react/jsx-indent-props": ["warn", 2],
     "react/jsx-key": "warn",
-    "react/jsx-max-props-per-line": [1,
+    "react/jsx-max-props-per-line": [
+      1,
       {
         "maximum": 3
-      }],
-    "react/jsx-no-bind": ["warn", {"allowArrowFunctions": true}],
+      }
+    ],
+    "react/jsx-no-bind": ["warn", { "allowArrowFunctions": true }],
     "react/jsx-no-comment-textnodes": "warn",
     "react/jsx-no-duplicate-props": ["warn", { "ignoreCase": true }],
     "react/jsx-no-undef": "warn",
-    "react/jsx-pascal-case": ["warn", {
-      "allowAllCaps": true,
-      "ignore": []
-    }],
+    "react/jsx-pascal-case": [
+      "warn",
+      {
+        "allowAllCaps": true,
+        "ignore": []
+      }
+    ],
     "react/jsx-sort-props": 0,
     "react/jsx-tag-spacing": "warn",
     "react/jsx-uses-react": "warn",
@@ -68,7 +73,8 @@
   "settings": {
     "import/ignore": [
       "node_modules",
-      "\\.(json|css|jpg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm)$",
+      "build",
+      "\\.(json|css|jpg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm)$"
     ],
     "import/extensions": [".js"],
     "import/resolver": {
