@@ -144,6 +144,15 @@ Start the dev server:
 yarn dev
 ```
 
-### TODO
+### Testing
 
-- Add tests both to the icon render and the generate icon exports script
+Run the test suite (builds the package first, then runs tests):
+
+```bash
+yarn test
+```
+
+Tests cover:
+
+- **Build scripts**: `generate-icon-exports.js` creates `src/IconComponents` and appends named exports to `src/index.ts`; `clean-icon-exports.js` restores `src/index.ts` and removes `src/IconComponents`.
+- **Rendering**: The default import (`FeatherIcon` with `icon` prop) and named imports (e.g. `X`) render the expected SVG output from the built package.
