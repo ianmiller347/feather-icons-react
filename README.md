@@ -5,7 +5,7 @@
 `yarn add feather-icons-react`
 
 This package lets you use [Feather Icons](https://feathericons.com/) as a React Component.
-It currently supports up to version [4.29.0](https://github.com/feathericons/feather/releases/tag/v4.29.0)
+It currently supports up to version [4.29.2](https://github.com/feathericons/feather/releases/tag/v4.29.2)
 
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -88,7 +88,24 @@ To build the bundled assets for consumption
 
 ### Updating the icons
 
-If you found a missing icon, it is pretty easy to generate a new icons.json and get a PR up so this package stays in sync with the latest feather icons.
+#### Automated Update (Recommended)
+
+The easiest way to update icons is to use the automated script:
+
+```bash
+npm run update-icons
+```
+
+This script will:
+1. Install the latest `feather-icons` package as a devDependency
+2. Extract the `icons.json` file from the package
+3. Copy it to `src/icons.json`
+4. Update the README with the new version
+5. Run the build process to generate new icon components
+
+#### Manual Update
+
+If you prefer to update manually, you can generate a new icons.json and get a PR up so this package stays in sync with the latest feather icons.
 Go into your desired project directory (ideally one directory above where you have feather-icons-react saved)
 
 1. `git clone https://github.com/feathericons/feather.git`
@@ -130,5 +147,3 @@ yarn dev
 ### TODO
 
 - Add tests both to the icon render and the generate icon exports script
-- Automatically generate new icons via script.
-  - could copy build-icons-json script from feather-icons

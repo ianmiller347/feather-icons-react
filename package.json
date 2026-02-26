@@ -15,7 +15,8 @@
     "lint": "eslint src",
     "lint:watch": "esw -w lib/**",
     "lint:fix": "eslint --fix",
-    "prepare": "npm run lint:fix && npm run build"
+    "prepare": "npm run lint:fix && npm run build",
+    "update-icons": "node update-icons.js"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-watch": "^6.0.1",
+    "feather-icons": "^4.29.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "rollup": "^4.32.0",
