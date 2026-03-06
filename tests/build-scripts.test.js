@@ -54,13 +54,19 @@ describe('generate-icon-exports.js', () => {
   }, 10000);
 
   it('appends named export lines to src/index.ts', async () => {
+    // Start from clean state so we assert single-run output, not double-generated state
+    await runScript('clean-icon-exports.js');
+    await waitForCleanWrite();
     await runScript('generate-icon-exports.js');
 
     const content = fs.readFileSync(srcIndexPath, 'utf8');
     expect(content).toContain("export { default } from './FeatherIcon';");
     expect(content).toContain("export { default as X } from './IconComponents/X';");
     expect(content).toContain("export { default as Activity } from './IconComponents/Activity';");
-  }, 10000);
+    // Ensure no duplicate exports (single run only)
+    const xExportMatches = content.match(/export \{ default as X \} from '\.\/IconComponents\/X';/g) || [];
+    expect(xExportMatches).toHaveLength(1);
+  }, 15000);
 });
 
 describe('clean-icon-exports.js', () => {
