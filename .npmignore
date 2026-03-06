@@ -4,3 +4,8 @@ src
 generate-icon-exports.js
 .yarn/*
 demo
+tests
+vitest.config.mts
+vitest.config.ts
+clean-icon-exports.js
+update-icons.js

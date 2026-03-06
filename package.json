@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "test": "npm run test",
+    "pretest": "npm run build",
+    "test": "vitest run",
     "build": "npm run lint && npm run build-exports && npm run build:bundle && npm run build:cleanup",
     "build:copy-files": "babel src -d build --copy-files --no-copy-ignored ",
     "build:cleanup": "node clean-icon-exports.js",
@@ -35,6 +36,10 @@
   },
   "homepage": "https://github.com/ianmiller347/feather-icons-react#readme",
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1",
+    "react-test-renderer": "^16.14.0",
+    "vitest": "^2.1.8",
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
